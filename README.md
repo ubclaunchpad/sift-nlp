@@ -21,7 +21,7 @@ source ./venv/bin/activate
 make init
 ```
 
-### Setup.py
+### Setup.sh
 
 Alternatively all these instructions are automated (for \*nix systems) in `setup.sh`. After installing virtualenv as instructed above, run in your `sift-nlp` directory as such:
 ```bash
