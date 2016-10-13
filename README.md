@@ -28,3 +28,7 @@ Alternatively all these instructions are automated (for \*nix systems) in `setup
 chmod +x setup.sh
 ./setup.sh
 ```
+
+## Testing
+
+For test data, go to the Amazon product review [dataset](http://jmcauley.ucsd.edu/data/amazon/) and download any of the datasets (I recommend only one as these are large files) to test your code against.

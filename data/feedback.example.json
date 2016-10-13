@@ -1,0 +1,9 @@
+{"product_name": "Name string",
+  "feedback":
+  [
+    {
+      "id"  : 0,
+      "body": "Body string"
+    },
+  ]
+}
