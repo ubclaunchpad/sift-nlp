@@ -28,7 +28,7 @@ def test_convert_incorrect_json():
 def test_standardize_input_correct_input():
     path = cwd+'/tests/test_data/feedback_correct_structure.json'
     standardized_list = parse.parse(path)
-    assert standardized_list == [dict(id=0,body="Body string"),
+    assert standardized_list == [dict(id=0,body="Body string bad"),
                                  dict(id=1,body="Another body string")]
 
 
