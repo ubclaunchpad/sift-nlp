@@ -30,6 +30,7 @@ addition
 fix
 remedy
 problem
+negative
 complicat
 complex
 issue

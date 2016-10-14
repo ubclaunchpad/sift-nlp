@@ -1,0 +1,10 @@
+[
+  {
+    "id"  : 0,
+    "body": "Body string"
+  },
+  {
+    "id"  : 1,
+    "body": "Another body string"
+  }
+]
