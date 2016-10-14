@@ -13,9 +13,9 @@ clean:
 	find . -type f -name '*~' -exec rm --force {} +
 
 test:
-	py.test $(TEST_PATH)
+	pytest -rxs $(TEST_PATH)
 
 run:
-	python $(RUN_PATH)/core.py
+	python $(RUN_PATH)/core.py $(ARGS)
 
 .PHONY: init test
