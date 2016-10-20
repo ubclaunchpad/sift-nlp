@@ -8,6 +8,9 @@ The required components of a Sift NLP job are:
 To make a job available, add it to __init__.py in this directory.
 """
 
-# This sample processing job function returns 42
+import random
+
+# This sample processing job function returns a random int between 1 and 100
 def run(payload):
-    return 42
+    random.seed()
+    return {'random': random.randint(1, 100)}
