@@ -25,7 +25,6 @@ celery-background:
 		--pidfile="$(CELERY_PATH)/%n.pid" \
 		--logfile="$(CELERY_PATH)/%n.log"
 
-
 celery-stop:
 	celery multi stop worker --pidfile="$(CELERY_PATH)/%n.pid"
 
