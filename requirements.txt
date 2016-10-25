@@ -1,9 +1,9 @@
-click==6.6
-Flask==0.11.1
-itsdangerous==0.24
-Jinja2==2.8
-MarkupSafe==0.23
+amqp==1.4.9
+anyjson==0.3.3
+billiard==3.3.0.23
+celery==3.1.24
+kombu==3.0.37
 py==1.4.31
 pytest==3.0.3
+pytz==2016.7
 requests==2.11.1
-Werkzeug==0.11.11
