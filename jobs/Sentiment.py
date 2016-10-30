@@ -9,13 +9,12 @@ and was sorely dissapointed with the veggie options on the menu. Will
 be the last time I visit, I recommend others to avoid.
 '''
 
-blob = TextBlob(text)
-
-def main():
-    sentiment_polarity()
+def main(text):
+    blob = TextBlob(text)
+    sentiment_polarity(blob)
 
 # gets polarity scores for each sentence and appends to an array
-def sentiment_polarity():
+def sentiment_polarity(blob):
     polarity_scores= []
     for sentence in blob.sentences:
         polarity_scores.append(sentence.sentiment.polarity)
@@ -37,4 +36,4 @@ def sentiment_results(polarity_scores):
     print("The negative polarity is " + str(negative_percentage) + "%")
 
 if __name__ == "__main__":
-    main()
+    main(text)
