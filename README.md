@@ -1,32 +1,59 @@
-# sift-nlp
-Natural language processing service of the Sift app
+# Sift NLP
 
-## Setup instructions for siftnlp module
+Natural language processing service of the Sift app.
 
-### Ensure you have virtualenv installed, which installs pip, on your local machine
+## Setup
 
-#### Ubuntu
+### Install `pip` and `virtualenv`
+
+Ubuntu
 `sudo apt-get install virtualenv`
-#### RHEL/CentOS
-`sudo yum install virtualenv`
-#### OSX
-`brew install virtualenv`
-#### Windows
-`Download installer (?)`
 
-### Initiate virtual environment dir, activate it, and code.
+OS X
+`brew install virtualenv`
+
+Initiate virtual environment, activate it, and code.
 ```bash
 virtualenv -p python2.7 venv
 source ./venv/bin/activate
 make init
 ```
 
-### Setup.sh
-
-Alternatively all these instructions are automated (for \*nix systems) in `setup.sh`. After installing `virtualenv` as instructed above, run in your `sift-nlp` directory as such:
+Alternatively all these instructions are automated (for \*nix systems) in `setup.sh`. After installing `virtualenv` as instructed above, run in your root `sift-nlp` directory as such:
 ```bash
 chmod +x setup.sh
 ./setup.sh
+```
+
+### Install RabbitMQ
+
+Ubuntu
+```
+sudo apt-get update
+sudo apt-get install rabbitmq-server
+```
+
+OS X
+```
+brew update
+brew install rabbitmq
+```
+
+Add `/usr/local/sbin` to the path. That's where the RabbitMQ executables are.
+```
+export PATH=$PATH:/usr/local/sbin
+```
+
+Start a RabbitMQ server.
+```
+rabbitmq-server
+```
+
+Set up a user and vhost.
+```
+rabbitmqctl add_user sift sift
+rabbitmqctl add_vhost sift
+sudo rabbitmqctl set_permissions -p sift sift ".*" ".*" ".*"
 ```
 
 ## Testing
@@ -39,4 +66,8 @@ All tests must be kept in the `tests/` dir. To run your tests, type `make test` 
 
 ## Running
 
-The `Makefile` specifies `core.py` as main. Type `make ARGS="${product_name} ${input_file_path}" run` to run the application. Output will be in `/sift-nlp/data/feedback_clean.json`.
+Sift NLP requires running Celery and RabbitMQ. The `Makefile` specifies a number of scripts for starting each of these in the foreground or background. Type `make run` to start an instance of Celery and RabbitMQ in the background.
+
+## Jobs
+
+Sift NLP is composed of jobs, which are simply functions registered with Celery so they can be run asynchronously and in parallel. You can find a simple example job in `jobrunner/jobs/sample.py`. Jobs accept 0 or more inputs of any JSON-serializable type, and return a JSON-serializable object.

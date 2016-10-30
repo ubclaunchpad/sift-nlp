@@ -67,3 +67,8 @@ docs/_build/
 # virtualenv
 venv/
 ENV/
+
+# Celery files
+*.log
+*.pid
+.celery

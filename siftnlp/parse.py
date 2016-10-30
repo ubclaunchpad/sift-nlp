@@ -17,8 +17,8 @@ JSON format for output should have the structure:
             ...
           ]
         }
-
 """
+
 # Converts raw (potentially non-strict) JSON into JSON array
 # @param {JSON} raw_json: source data containing feedback
 # @param {array} strict_json_list: output array for JSON objects
