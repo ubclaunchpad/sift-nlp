@@ -26,9 +26,6 @@ run-rabbitmq:
 run-redis:
 	redis-server
 
-# These background/stop methods are kept around as legacy, but aren't
-# useful since there isn't a good way to start Redis in the background.
-# In any case, soon we will be using Docker anyway...
 celery-background:
 	celery multi start worker -A sift.jobrunner.main \
 		--pidfile="$(CELERY_PATH)/%n.pid" \

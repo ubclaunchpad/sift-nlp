@@ -25,6 +25,18 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
+### Install Docker
+
+[Ubuntu]( https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+[OSX](https://docs.docker.com/docker-for-mac/)
+
+Once you've installed Docker, start RabbitMQ and Redis.
+```
+docker-compose up
+```
+
+If you can't use Docker for some reason, continue with the following steps to manually install Redis and RabbitMQ.
+
 ### Install RabbitMQ
 
 Ubuntu
@@ -85,7 +97,7 @@ All tests must be kept in the `tests/` dir. To run your tests, type `make test` 
 
 ## Running
 
-Sift NLP requires running Celery, Redis, and RabbitMQ. You can run each of these by running `make run-celery`, `make run-rabbitmq`, and `make run-redis`, 
+Sift NLP requires running Celery, Redis, and RabbitMQ. You can run each of these by running `make run-celery`, `make run-rabbitmq`, and `make run-redis`,
 
 ## Jobs
 
