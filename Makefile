@@ -17,9 +17,18 @@ clean:
 test:
 	pytest -rxs $(TEST_PATH)
 
-celery-foreground:
+run-celery:
 	celery -A sift.jobrunner.main worker -l info
 
+run-rabbitmq:
+	rabbitmq-server
+
+run-redis:
+	redis-server
+
+# These background/stop methods are kept around as legacy, but aren't
+# useful since there isn't a good way to start Redis in the background.
+# In any case, soon we will be using Docker anyway...
 celery-background:
 	celery multi start worker -A sift.jobrunner.main \
 		--pidfile="$(CELERY_PATH)/%n.pid" \
@@ -28,19 +37,10 @@ celery-background:
 celery-stop:
 	celery multi stop worker --pidfile="$(CELERY_PATH)/%n.pid"
 
-rabbitmq-foreground:
-	rabbitmq-server
-
 rabbitmq-background:
 	rabbitmq-server -detached
 
 rabbitmq-stop:
 	rabbitmqctl stop
-
-run:
-	make celery-background && make rabbitmq-background
-
-stop:
-	make celery-stop && make rabbitmq-stop
 
 .PHONY: init test
