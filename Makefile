@@ -17,8 +17,14 @@ clean:
 test:
 	pytest -rxs $(TEST_PATH)
 
-celery-foreground:
+run-celery:
 	celery -A sift.jobrunner.main worker -l info
+
+run-rabbitmq:
+	rabbitmq-server
+
+run-redis:
+	redis-server
 
 celery-background:
 	celery multi start worker -A sift.jobrunner.main \
@@ -28,19 +34,10 @@ celery-background:
 celery-stop:
 	celery multi stop worker --pidfile="$(CELERY_PATH)/%n.pid"
 
-rabbitmq-foreground:
-	rabbitmq-server
-
 rabbitmq-background:
 	rabbitmq-server -detached
 
 rabbitmq-stop:
 	rabbitmqctl stop
-
-run:
-	make celery-background && make rabbitmq-background
-
-stop:
-	make celery-stop && make rabbitmq-stop
 
 .PHONY: init test
