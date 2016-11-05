@@ -26,8 +26,8 @@ def sentiment_results(polarity_scores):
     total_polarity = abs(negative) + positive
     negative_percentage = abs(negative) / total_polarity * 100
     positive_percentage = positive / total_polarity * 100
-    polarityProp.append(negative_percentage)
     polarityProp.append(positive_percentage)
+    polarityProp.append(negative_percentage)
     return(polarityProp)
 
 
