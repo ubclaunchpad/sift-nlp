@@ -26,6 +26,18 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
+### Install Docker
+
+[Ubuntu]( https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+[OSX](https://docs.docker.com/docker-for-mac/)
+
+Once you've installed Docker, start RabbitMQ and Redis.
+```
+docker-compose up
+```
+
+If you can't use Docker for some reason, continue with the following steps to manually install Redis and RabbitMQ.
+
 ### Install RabbitMQ
 
 Ubuntu
@@ -57,6 +69,25 @@ rabbitmqctl add_vhost sift
 sudo rabbitmqctl set_permissions -p sift sift ".*" ".*" ".*"
 ```
 
+### Install Redis
+
+Ubuntu
+```
+sudo apt-get update
+sudo apt-get install redis
+```
+
+OS X
+```
+brew update
+brew install redis
+```
+
+Start a Redis server.
+```
+redis-server
+```
+
 ## Testing
 
 For test data, go to the Amazon product review [dataset](http://jmcauley.ucsd.edu/data/amazon/) and download any of the datasets (I recommend only one as these are large files) to test your code against.
@@ -67,7 +98,7 @@ All tests must be kept in the `tests/` dir. To run your tests, type `make test` 
 
 ## Running
 
-Sift NLP requires running Celery and RabbitMQ. The `Makefile` specifies a number of scripts for starting each of these in the foreground or background. Type `make run` to start an instance of Celery and RabbitMQ in the background.
+Sift NLP requires running Celery, Redis, and RabbitMQ. You can run each of these by running `make run-celery`, `make run-rabbitmq`, and `make run-redis`,
 
 ## Jobs
 

@@ -1,8 +1,8 @@
 # Celery settings
 
-# URL format: transport://user:pass@host:port/vhost
-BROKER_URL = 'amqp://sift:sift@localhost:5672/sift'
-CELERY_RESULT_BACKEND = 'amqp://sift:sift@localhost:5672/sift'
+# transport://user:pass@host:port/vhost
+BROKER_URL = 'amqp://sift:sift@rabbitmq:5672/sift'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 
 # List of modules to import when celery starts.
 CELERY_IMPORTS = ('sift.jobrunner.jobs',)
