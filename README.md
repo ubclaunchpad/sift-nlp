@@ -26,17 +26,9 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-### Install Docker
+### Set up Docker environment
 
-[Ubuntu]( https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-[OSX](https://docs.docker.com/docker-for-mac/)
-
-Once you've installed Docker, start RabbitMQ and Redis.
-```
-docker-compose up
-```
-
-If you can't use Docker for some reason, continue with the following steps to manually install Redis and RabbitMQ.
+See instructions in [Sift Base](https://github.com/ubclaunchpad/sift-base) for setting up a Docker environment to run Sift. If you can't use Docker for some reason, follow the instructions below for installing and running RabbitMQ and Redis manually.
 
 ### Install RabbitMQ
 
@@ -96,7 +88,9 @@ We will be using the [pytest](http://doc.pytest.org/en/latest/) testing framewor
 
 All tests must be kept in the `tests/` dir. To run your tests, type `make test` in the `Makefile` dir. See `test_{nlp, parse}.py` for examples of tests.
 
-## Running
+## Running Without Docker
+
+If you can't use Docker for some reason, you can manually run Sift services.
 
 Sift NLP requires running Celery, Redis, and RabbitMQ. You can run each of these by running `make run-celery`, `make run-rabbitmq`, and `make run-redis`,
 
