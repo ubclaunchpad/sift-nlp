@@ -17,4 +17,4 @@ from sift.jobrunner.main import app
 @app.task()
 def run(payload):
     random.seed()
-    return {'random': random.randint(1, 100), 'payload': payload}
+    return {"job_id":"rand_sampler", "payload":{"rand":random.randint(1, 100)}}

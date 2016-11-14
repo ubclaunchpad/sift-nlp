@@ -1,5 +1,5 @@
 import re
-import json
+# Celery app
 from sift.jobrunner.main import app
 
 # Celery job for re_nlp
@@ -16,7 +16,7 @@ def run(payload):
             counter += search_body(obj['fb_body'], word)
         rated_feedback_list.append(rate_text_body(obj['fb_id'], counter))
     sort_by_match_count(rated_feedback_list)
-    return dict(job_id="re_nlp", response=rated_feedback_list)
+    return dict(job_id="re_nlp", payload=rated_feedback_list)
 
 
 # Search text body for a word beginning using regex

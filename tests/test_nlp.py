@@ -77,5 +77,5 @@ def test_run():
     response = [dict(fb_id=1, fb_rating=3),
                 dict(fb_id=0, fb_rating=2),
                 dict(fb_id=2, fb_rating=0)]
-    test_dict = dict(job_id="re_nlp",response=response)
+    test_dict = dict(job_id="re_nlp",payload=response)
     assert re_nlp.run(payload) == test_dict
