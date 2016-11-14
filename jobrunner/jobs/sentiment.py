@@ -5,29 +5,15 @@ import math
 # Returns an array where position 1 is positive percentage and
 # position 2 is negative percentage
 def run(text):
-    blob = TextBlob(text)
-    return(sentiment_polarity(blob))
+    return sentiment_polarity(TextBlob(text))
 
 def sentiment_polarity(blob):
-    polarity_scores= []
-    for sentence in blob.sentences:
-        polarity_scores.append(sentence.sentiment.polarity)
-    return(sentiment_results(polarity_scores))
+    return sentiment_results([sentence.sentiment.polarity for sentence in blob.sentences])
 
 def sentiment_results(polarity_scores):
-    polarityProp = []
-    negative = 0
-    positive = 0
-    for score in polarity_scores:
-        if score < 0:
-            negative += score
-        else:
-            positive += score
-    total_polarity = abs(negative) + positive
-    negative_percentage = abs(negative) / total_polarity * 100
-    positive_percentage = positive / total_polarity * 100
-    polarityProp.append(positive_percentage)
-    polarityProp.append(negative_percentage)
-    return(polarityProp)
+    positive = sum(filter(lambda x: x > 0, polarity_scores))
+    negative = abs(sum(filter(lambda x: x < 0, polarity_scores)))
+    total_polarity = negative + positive
 
-
+    return dict(pos_pct=(positive / total_polarity * 100),\
+                neg_pct=(negative / total_polarity * 100))
