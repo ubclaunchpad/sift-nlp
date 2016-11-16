@@ -1,5 +1,5 @@
 # Project-specific files
-data/*feedback.json
+data/*feedback*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
