@@ -10,5 +10,5 @@ def test_text():
     be the last time I visit, I recommend others to avoid.
     '''
     sentimentResults = sentiment.run(text)
-    assert sentimentResults['pos_pct']== 45.23809523809524
+    assert sentimentResults['pos_pct'] == 45.23809523809524
     assert sentimentResults['neg_pct'] == 54.761904761904766
