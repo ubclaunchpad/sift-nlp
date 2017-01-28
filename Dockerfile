@@ -1,7 +1,10 @@
 FROM python:2.7.12-wheezy
-MAINTAINER Jordan Schalm <jordan.schalm@gmail.com>
+MAINTAINER Eric Stroczynski <ericstroczynski@gmail.com>
 
 COPY . /opt
-RUN pip install -r /opt/requirements.txt
+RUN apt-get update \
+    && apt-get clean \
+    && pip install -r /opt/requirements.txt
 
-CMD cd /opt && make run-celery
+CMD cd /opt \
+    && make run-celery
