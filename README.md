@@ -3,6 +3,13 @@
 
 Natural language processing service of the Sift app.
 
+The other components to the Sift app are in these repositories:
+The following repositories contain Sift services:
+* [sift-base](https://github.com/ubclaunchpad/sift-base)
+* [sift-api](https://github.com/ubclaunchpad/sift-api)
+* [sift-web](https://github.com/ubclaunchpad/sift-web)
+
+
 ## Setup
 
 ### Install `pip` and `virtualenv`
