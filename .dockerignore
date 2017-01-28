@@ -1,0 +1,6 @@
+# Test data files
+data/*feedback*.json
+# Optimized python bytecode
+*.pyc
+# Local virtualenv
+venv/
