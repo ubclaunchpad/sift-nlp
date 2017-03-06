@@ -72,7 +72,7 @@ def test_sort_by_match_count():
                           dict(fb_id=5,fb_rating=1)]
 
 def test_run():
-    with open('data/test_processed_small.json','r+') as f:
+    with open('data/test_processed.json','r+') as f:
         payload = json.load(f)
     response = [dict(fb_id=1, fb_rating=3),
                 dict(fb_id=0, fb_rating=2),
