@@ -15,5 +15,5 @@ def sentiment_results(polarity_scores):
     negative = abs(sum(filter(lambda x: x < 0, polarity_scores)))
     total_polarity = negative + positive
 
-    return dict(pos_pct=(positive / total_polarity * 100),\
-                neg_pct=(negative / total_polarity * 100))
+    return dict(pos_pct=((positive / total_polarity) * 100),
+                neg_pct=((negative / total_polarity) * 100))

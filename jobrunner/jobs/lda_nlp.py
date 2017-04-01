@@ -18,17 +18,15 @@ def run(payload):
 
     docs_topics = [dict(doc_id=int(fb['fb_id'][n]),
                         top_topic=doc_topics[n].argmax(),
-                        topic_dist=[dict(topic_id=index,
-                                         freq=round(lh,5))
-                                         for index, lh in zip(doc_topics[n].argsort(),
-                                                          sorted(doc_topics[n].tolist()))[-3:]])
-                        for n in range(len(fb['fb_id']))]
+                        topic_dist=[dict(topic_id=index, freq=round(lh,5))
+                                    for index, lh in zip(doc_topics[n].argsort(),
+                                                     sorted(doc_topics[n].tolist()))[-3:]])
+                   for n in range(len(fb['fb_id']))]
 
     topics_words = [dict(topic_id=t_id,
-                         topic_words=[dict(word=feat_names[word_id],
-                                           freq=round(dist,5))
-                                           for word_id, dist in zip(topic.argsort(),
-                                                                sorted(topic.tolist()))[-3:]])
+                         topic_words=[dict(word=feat_names[word_id], freq=round(dist,5))
+                                      for word_id, dist in zip(topic.argsort(),
+                                                           sorted(topic.tolist()))[-3:]])
                     for t_id, topic in enumerate(model.components_)]
 
     payload = dict(doc_topic=docs_topics, topic_word=topics_words)
@@ -47,8 +45,9 @@ def create_tdm_(feedback, columns=None):
                               min_df=2)
     tx = cv.fit_transform(feedback['fb_body'])
     feature_names = cv.get_feature_names()
-    df = pd.DataFrame(tx.toarray().transpose(), index=feature_names,
-                                                columns=columns)
+    df = pd.DataFrame(tx.toarray().transpose(),
+                      index=feature_names,
+                      columns=columns)
     return df, feature_names
 
 # Initialize an LDA model object with 20 topics and 'online' learning method
