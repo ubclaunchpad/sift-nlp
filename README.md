@@ -1,5 +1,6 @@
 # Sift NLP
 [![Build Status](https://api.travis-ci.org/ubclaunchpad/sift-nlp.svg?branch=master)](https://travis-ci.org/ubclaunchpad/sift-nlp)
+[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.com)
 
 Natural language processing service of the Sift app.
 
